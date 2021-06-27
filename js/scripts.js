@@ -14,8 +14,8 @@ Pizza.prototype.getSizePrice = function(){
     else if(this.pizzaSize == 'large'){
         sizePrice=300;
     }
-  }
-
+    return sizePrice;
+}
 Pizza.prototype.getCrustPrice = function(){
     crustPrice=0;
     if(this.pizzaCrust == 'Crispy'){
@@ -45,7 +45,32 @@ Pizza.prototype.getToppingsPrice = function(){
     }
     return toppingPrice;
 }
+function getDeliveryPrice(location){
+    deliveryPrice=0
+    westLocations=['Westlands','Riverside'];
+    eastLocations=['Donholm','Buruburu'];
+    centralLocations=['CBD','Ngara'];
+    if(westLocations.includes(location)){
+        deliveryPrice=deliveryPrice+200;
+    }
+    else if(eastLocations.includes(location)){
+        deliveryPrice=deliveryPrice+300;
+    }
+    else if(centralLocations.includes(location)){
+        deliveryPrice=deliveryPrice+0;
+    }
+    return deliveryPrice;
+}
 
+function showMe (box) {
+    var chboxs = document.getElementById("div1").style.display;
+    var vis = "none";
+        if(chboxs=="none"){
+         vis = "block"; }
+        if(chboxs=="block"){
+         vis = "none"; }
+    document.getElementById(box).style.display = vis;
+}
 $(document).ready(function(){
     $('#myForm').submit(function(event){
         event.preventDefault();
@@ -54,7 +79,14 @@ $(document).ready(function(){
         var myToppings =$('#myToppings').val();
         var myNumber=$('.count').val();
         var newPizza = new Pizza(mySize,myCrust,myToppings);
-        var price=newPizza.getSizePrice()+newPizza.getCrustPrice()+newPizza.getToppingsPrice()
+        var price=newPizza.getSizePrice()+newPizza.getCrustPrice()+newPizza.getToppingsPrice();
+        var delivery=$('#location').val();
+        if(delivery === ""){
+            price=price
+        }
+        else{
+            price=price+getDeliveryPrice(delivery)
+        }
         price=price*myNumber;
         console.log(price);
     });

@@ -137,18 +137,36 @@
                        </select>
                      </div>
                      <div class="form-group mb-4">
-                        <label for="count">Pizza Size</label>
+                        <label for="count">Quantity:</label>
                        <div class="qty mt-2">
                          <span class="minus bg-dark">-</span>
                          <input type="number" class="count" name="qty" value="1" id="count">
                          <span class="plus bg-dark">+</span>
                      </div>
                      </div>
+                     <div class="form-group">
+                        <input type="checkbox" name="check1" value="checkbox" onchange="showMe('div1')" /> Get your Pizza Delivered
+
+                        <div id="div1" style="display:none;">
+                            <div class="form-group mb-4">
+                                <label for="mySize">Choose Location</label>
+                                <select class="mySelect" name="" id="location">
+                                      <option value="CBD">CBD</option>
+                                      <option value="Donholm">Donholm</option>
+                                      <option value="Buruburu">Buruburu</option>
+                                      <option value="Ngara">Ngara</option>
+                                      <option value="Westlands">Westlands </option>
+                                      <option value="Riverside">Riverside</option>
+                                </select>
+                              </div>
+                        </div>
+                     </div>
                      <div class="form-group pt-2">
                        <button type="submit" class="btn btn-primary">Submit</button>
                      </div>
                    </form>
                 </div>
+
             </div>
         </div>
     </section>
