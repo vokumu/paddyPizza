@@ -4,7 +4,7 @@ function Pizza(size,crust,toppings, number) {
     this.pizzaToppings=toppings;
     this.number=number;
   }
-  Pizza.prototype.getSizePrice = function(){
+Pizza.prototype.getSizePrice = function(){
     sizePrice=0;
     if(this.pizzaSize == 'small'){
         sizePrice=100;
@@ -17,7 +17,19 @@ function Pizza(size,crust,toppings, number) {
     }
   }
 
-
+Pizza.prototype.getCrustPrice = function(){
+    crustPrice=0;
+    if(this.pizzaCrust == 'Crispy'){
+        crustPrice=500;
+    }
+    else if(this.pizzaCrust == 'Stuffed'){
+        crustPrice=800;
+    }
+    else if(this.pizzaCrust == 'Glutten Free'){
+        crustPrice=1000;
+    }
+    return crustPrice;
+}
 $(document).ready(function(){
     $('#myForm').submit(function(event){
         event.preventDefault();
