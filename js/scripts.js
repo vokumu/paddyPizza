@@ -1,8 +1,7 @@
-function Pizza(size,crust,toppings, number) {
+function Pizza(size,crust,toppings) {
     this.pizzaSize = size;
     this.pizzaCrust = crust;
     this.pizzaToppings=toppings;
-    this.number=number;
   }
 Pizza.prototype.getSizePrice = function(){
     sizePrice=0;
@@ -59,7 +58,7 @@ $(document).ready(function(){
         price=price*myNumber;
         console.log(price);
     });
-    
+
     $('.count').prop('disabled', true);
     $(document).on('click','.plus',function(){
      $('.count').val(parseInt($('.count').val()) + 1 );
