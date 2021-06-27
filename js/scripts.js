@@ -46,6 +46,7 @@ Pizza.prototype.getToppingsPrice = function(){
     }
     return toppingPrice;
 }
+
 $(document).ready(function(){
     $('#myForm').submit(function(event){
         event.preventDefault();
@@ -53,12 +54,12 @@ $(document).ready(function(){
         var myCrust=$('#myCrust').val();
         var myToppings =$('#myToppings').val();
         var myNumber=$('.count').val();
-        var newPizza = new Pizza(mySize,myCrust,myToppings,myNumber);
-        console.log(myNumber);
-    
-
+        var newPizza = new Pizza(mySize,myCrust,myToppings);
+        var price=newPizza.getSizePrice()+newPizza.getCrustPrice()+newPizza.getToppingsPrice()
+        price=price*myNumber;
+        console.log(price);
     });
-
+    
     $('.count').prop('disabled', true);
     $(document).on('click','.plus',function(){
      $('.count').val(parseInt($('.count').val()) + 1 );
