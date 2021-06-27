@@ -4,17 +4,18 @@ function Pizza(size,crust,toppings, number) {
     this.pizzaToppings=toppings;
     this.number=number;
   }
-Pizza.prototype.getPrice = function(){
+  Pizza.prototype.getSizePrice = function(){
+    sizePrice=0;
     if(this.pizzaSize == 'small'){
-        return "1";
+        sizePrice=100;
     }
     else if(this.pizzaSize == 'medium'){
-        return "2";
+        sizePrice=200;
     }
     else if(this.pizzaSize == 'large'){
-        return "3";
+        sizePrice=300;
     }
-}
+  }
 
 
 $(document).ready(function(){
