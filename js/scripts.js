@@ -71,14 +71,24 @@ $(document).ready(function(){
             price=price*myNumber;
 
         }
+        $('.orderForm').hide();
         $('.order').show();
-        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Size Price:  ' + newPizza.getSizePrice() + "</p></li>");
-        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Crust Price:  ' + newPizza.getCrustPrice() + "</p></li>");
-        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Toppings Price:  ' + newPizza.getToppingsPrice() + "</p></li>");
-        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Delivery cost:  ' + deliveryCost + "</p></li>");
-        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Number of Pizzas:  ' + myNumber + "</p></li>");
-        $("ul#order-list").append('<li><h2 class="card-title pricing-card-title">Total KSH ' + price + "</h2></li>");
+        $( "#showOrder" ).click(function() {
+            $("ul#order-list").append('<li><p class="card-title pricing-card-title">Size Price:  ' + newPizza.getSizePrice() + "</p></li>");
+            $("ul#order-list").append('<li><p class="card-title pricing-card-title">Crust Price:  ' + newPizza.getCrustPrice() + "</p></li>");
+            $("ul#order-list").append('<li><p class="card-title pricing-card-title">Toppings Price:  ' + newPizza.getToppingsPrice() + "</p></li>");
+            $("ul#order-list").append('<li><p class="card-title pricing-card-title">Delivery cost:  ' + deliveryCost + "</p></li>");
+            $("ul#order-list").append('<li><p class="card-title pricing-card-title">Number of Pizzas:  ' + myNumber + "</p></li>");
+            $("ul#order-list").append('<li><h2 class="card-title pricing-card-title">Total KSH ' + price + "</h2></li>");
+            $('#showOrder').hide();
+            $('#makePayment').show();
+          });
+          $( "#makePayment" ).click(function() {
+              alert('Thank your choosing us your order will be arriving soon');
+              window.location.href = 'index.html';
+          });
     });
+
 
       
 
