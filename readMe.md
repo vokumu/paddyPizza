@@ -9,7 +9,7 @@ Paddy Pizza is a  simple website for Paddy Pizza company developed to provide th
 ## Setup Instructions  
 To start using this project use the following commands:
 
-- `git clone https://github.com/vokumu/Delani.git`
+- `git clone https://github.com/vokumu/paddyPizza.git`
 - `cd PADDYPIZZA`
 - `atom .`
 - `code .` [//]: # (this is if Visual Studio Code is your preferred text editor)
