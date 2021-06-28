@@ -15,7 +15,7 @@ To start using this project use the following commands:
 - `code .` [//]: # (this is if Visual Studio Code is your preferred text editor)
 
 ## View Site
-[View site](https://vokumu.github.io/Delani/)
+[View site](https://vokumu.github.io/paddyPizza/)
 
 ## Technologies Used 
         *HTML
