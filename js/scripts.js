@@ -1,3 +1,4 @@
+//Business Logic
 function Pizza(size,crust,toppings) {
     this.pizzaSize = size;
     this.pizzaCrust = crust;
@@ -62,6 +63,7 @@ Pizza.prototype.getToppingsPrice = function(){
     return toppingPrice;
 }
 
+//UI logic
 $(document).ready(function(){
     $('#myForm').submit(function(event){
         event.preventDefault();
