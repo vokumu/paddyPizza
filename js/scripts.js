@@ -36,10 +36,26 @@ Pizza.prototype.getToppingsPrice = function(){
     toppings=this.pizzaToppings
     for(i=0; i<toppings.length;i++){
         if(vegToppings.includes(toppings[i])){
-            toppingPrice=toppingPrice+200;
+            if(this.pizzaSize == 'small'){
+                toppingPrice=toppingPrice+200;
+            }
+            else if(this.pizzaSize == 'medium'){
+                toppingPrice=toppingPrice+300;
+            }
+            else if(this.pizzaSize == 'large'){
+                toppingPrice=toppingPrice+400;
+            }
         }
         else if(meatTopings.includes(toppings[i])){
-            toppingPrice=toppingPrice+300;
+            if(this.pizzaSize == 'small'){
+                toppingPrice=toppingPrice+300;
+            }
+            else if(this.pizzaSize == 'medium'){
+                toppingPrice=toppingPrice+400;
+            }
+            else if(this.pizzaSize == 'large'){
+                toppingPrice=toppingPrice+500;
+            }
 
         }
     }
