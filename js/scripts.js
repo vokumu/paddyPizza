@@ -45,32 +45,7 @@ Pizza.prototype.getToppingsPrice = function(){
     }
     return toppingPrice;
 }
-function getDeliveryPrice(location){
-    deliveryPrice=0
-    westLocations=['Westlands','Riverside'];
-    eastLocations=['Donholm','Buruburu'];
-    centralLocations=['CBD','Ngara'];
-    if(westLocations.includes(location)){
-        deliveryPrice=deliveryPrice+200;
-    }
-    else if(eastLocations.includes(location)){
-        deliveryPrice=deliveryPrice+300;
-    }
-    else if(centralLocations.includes(location)){
-        deliveryPrice=deliveryPrice+0;
-    }
-    return deliveryPrice;
-}
 
-function showMe (box) {
-    var chboxs = document.getElementById("div1").style.display;
-    var vis = "none";
-        if(chboxs=="none"){
-         vis = "block"; }
-        if(chboxs=="block"){
-         vis = "none"; }
-    document.getElementById(box).style.display = vis;
-}
 $(document).ready(function(){
     $('#myForm').submit(function(event){
         event.preventDefault();
@@ -80,16 +55,32 @@ $(document).ready(function(){
         var myNumber=$('.count').val();
         var newPizza = new Pizza(mySize,myCrust,myToppings);
         var price=newPizza.getSizePrice()+newPizza.getCrustPrice()+newPizza.getToppingsPrice();
-        var delivery=$('#location').val();
-        if(delivery === ""){
-            price=price
+        var delivery=document.getElementById("delivery");
+        var location="";
+        deliveryCost=0;
+        if(delivery.checked == true){
+            alert("You have selected delivery as part of your options you will be charged an extra KSH 300 for delivery.");
+            location=prompt("Where should the delivery be made?");
+            deliveryCost=300;
+            price=(price*myNumber)+deliveryCost;
+            alert("Your Pizza will be deivered in "+location);
+            
+
         }
         else{
-            price=price+getDeliveryPrice(delivery)
+            price=price*myNumber;
+
         }
-        price=price*myNumber;
-        console.log(price);
+        $('.order').show();
+        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Size Price:  ' + newPizza.getSizePrice() + "</p></li>");
+        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Crust Price:  ' + newPizza.getCrustPrice() + "</p></li>");
+        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Toppings Price:  ' + newPizza.getToppingsPrice() + "</p></li>");
+        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Delivery cost:  ' + deliveryCost + "</p></li>");
+        $("ul#order-list").append('<li><p class="card-title pricing-card-title">Number of Pizzas:  ' + myNumber + "</p></li>");
+        $("ul#order-list").append('<li><h2 class="card-title pricing-card-title">Total KSH ' + price + "</h2></li>");
     });
+
+      
 
     $('.count').prop('disabled', true);
     $(document).on('click','.plus',function(){
